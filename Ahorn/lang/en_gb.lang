@@ -1,0 +1,10 @@
+# -- Entities
+placements.entities.FurryHelper/GlitchWall.tooltips.tiletype=The tileset ID to use for the block.
+placements.entities.FurryHelper/GlitchWall.tooltips.BPM=The rate of the teleport in beats-per-minute.
+placements.entities.FurryHelper/GlitchWall.tooltips.TimeDelays=List of delay multipliers per beat. For example, "1,2" will make every second beat twice as long.
+
+# -- Triggers
+placements.triggers.FurryHelper/momentumCameraOffsetTrigger.tooltips.momentumMode=Which momentum coordinate is being used.
+placements.triggers.FurryHelper/momentumCameraOffsetTrigger.tooltips.onlyOnce=If checked: Destroys the trigger after exiting.
+placements.triggers.FurryHelper/momentumCameraOffsetTrigger.tooltips.xOnly=If checked: Only the x coordinate will be affected by this trigger.
+placements.triggers.FurryHelper/momentumCameraOffsetTrigger.tooltips.yOnly=If checked: Only the y coordinate will be affected by this trigger.

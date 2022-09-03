@@ -1,0 +1,20 @@
+mods.FurryHelper.name=Furry Helper
+
+# -- Entities --
+entities.FurryHelper/GlitchWall.placements.name.glitch_wall=Glitch Wall
+entities.FurryHelper/GlitchWall.attributes.description.tiletype=The tileset ID to use for the block.
+entities.FurryHelper/GlitchWall.attributes.description.BPM=The rate of the teleport in beats-per-minute.
+entities.FurryHelper/GlitchWall.attributes.description.TimeDelays=List of delay multipliers per beat. For example, "1,2" will make every second beat twice as long.
+
+# -- Triggers --
+triggers.FurryHelper/momentumCameraOffsetTrigger.placements.name.momentum_camera=Momentum Camera Offset
+triggers.FurryHelper/momentumCameraOffsetTrigger.attributes.description.offsetXFrom=First X position of the camera offset.
+triggers.FurryHelper/momentumCameraOffsetTrigger.attributes.description.offsetXTo=Second X position of the camera offset.
+triggers.FurryHelper/momentumCameraOffsetTrigger.attributes.description.offsetYFrom=First Y position of the camera offset.
+triggers.FurryHelper/momentumCameraOffsetTrigger.attributes.description.offsetYTo=Second Y position of the camera offset.
+triggers.FurryHelper/momentumCameraOffsetTrigger.attributes.description.momentumFrom=The speed at or below which the "from" offset will be applied.
+triggers.FurryHelper/momentumCameraOffsetTrigger.attributes.description.momentumTo=The speed at or above which the "to" offset will be applied.
+triggers.FurryHelper/momentumCameraOffsetTrigger.attributes.description.momentumMode=Which momentum direction controls the the offset.
+triggers.FurryHelper/momentumCameraOffsetTrigger.attributes.description.onlyOnce=If checked, the trigger will be disabled when the player first leaves it.
+triggers.FurryHelper/momentumCameraOffsetTrigger.attributes.description.xOnly=Whether the trigger should only update the horizontal offset, keeping the current vertical offset.
+triggers.FurryHelper/momentumCameraOffsetTrigger.attributes.description.yOnly=Whether the trigger should only update the vertical offset, keeping the current horizontal offset.

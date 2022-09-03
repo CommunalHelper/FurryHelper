@@ -19,7 +19,18 @@ glitchWall.placements = {
     }
 }
 
-glitchWall.fieldInformation = fakeTilesHelper.getFieldInformation("tiletype")
+-- Returns a function to be up to date with any XML changes
+function glitchWall.fieldInformation(entity)
+    return {
+        tiletype = {
+            options = fakeTilesHelper.getTilesOptions(),
+            editable = false
+        },
+        BPM = {
+            fieldType = "integer"
+        }
+    }
+end
 
 glitchWall.sprite = fakeTilesHelper.getEntitySpriteFunction("tiletype", true)
 

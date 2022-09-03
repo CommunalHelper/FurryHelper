@@ -24,6 +24,7 @@ momentumCameraOffsetTrigger.fieldInformation = {
             "HorizontalMomentum",
             "VerticalMomentum"
         },
+        editable = false
     }
 }
 

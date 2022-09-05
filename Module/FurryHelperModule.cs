@@ -1,9 +1,8 @@
-﻿using System;
+﻿using MonoMod.ModInterop;
+using System;
 
 namespace Celeste.Mod.FurryHelper {
     public class FurryHelperModule : EverestModule {
-
-        public static bool CommunalHelperLoaded = false;
 
         public static FurryHelperModule Instance { get; private set; }
 
@@ -11,15 +10,16 @@ namespace Celeste.Mod.FurryHelper {
             Instance = this;
         }
 
-        public override void Load() { }
+        public override void Load() {
+            typeof(CommunalHelperImports).ModInterop();
+        }
 
         public override void Unload() { }
-
-        public override void LoadContent(bool firstLoad) {
-            base.LoadContent(firstLoad);
-            if (Everest.Loader.DependencyLoaded(new EverestModuleMetadata() { Name = "CommunalHelper", Version = new Version(1, 13, 2) })) {
-                CommunalHelperLoaded = true;
-            }
-        }
     }
+
+    [ModImportName("CommunalHelper.DashStates")]
+    public static class CommunalHelperImports {
+        public static Func<int> StDreamTunnelDash;
+    }
+
 }

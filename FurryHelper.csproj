@@ -26,9 +26,6 @@
     <ItemGroup>
         <Reference Include="$(CelestePrefix)\Celeste.exe" />
         <Reference Include="$(CelestePrefix)\MMHOOK_Celeste.dll" />
-        <Reference Include="CommunalHelper">
-          <HintPath>lib-stripped\CommunalHelper.dll</HintPath>
-        </Reference>
     </ItemGroup>
 
     <Choose>

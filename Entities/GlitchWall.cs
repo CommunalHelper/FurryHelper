@@ -1,4 +1,3 @@
-using Celeste.Mod.CommunalHelper.DashStates;
 using Celeste.Mod.Entities;
 using Microsoft.Xna.Framework;
 using Monocle;
@@ -162,7 +161,7 @@ namespace Celeste.Mod.FurryHelper {
                 }
 
                 current = CollideFirst<Player>();
-                if (current != null && current.Collider is Hitbox && !IsDreamdashing(current)) {
+                if (current != null && current.Collider is Hitbox && !IsDreamDashing(current)) {
                     Vector2 direction = IntersectionDiff(Hitbox, current.Collider as Hitbox);
                     if (Math.Max(Math.Abs(direction.X), Math.Abs(direction.Y)) <= 8) {
                         current.Position += direction;
@@ -174,17 +173,12 @@ namespace Celeste.Mod.FurryHelper {
                 atEnd = !atEnd;
             }
         }
-        private static bool IsDreamdashing(Player player) {
-            bool dreamDashing = player.StateMachine.State == Player.StDreamDash;
-            if (!dreamDashing && FurryHelperModule.CommunalHelperLoaded) {
-                dreamDashing = IsDreamTunnelDashing(player);
-            }
+        private static bool IsDreamDashing(Player player) {
+            bool inDreamState = player.StateMachine.State == Player.StDreamDash;
+            bool inDreamTunnelState = player.StateMachine.State == (CommunalHelperImports.StDreamTunnelDash?.Invoke() ?? -1);
+            return inDreamState || inDreamTunnelState;
+        }
 
-            return dreamDashing;
-        }
-        private static bool IsDreamTunnelDashing(Player player) {
-            return player.StateMachine.State == DreamTunnelDash.StDreamTunnelDash;
-        }
         public Vector2 IntersectionDiff(Hitbox hitbox1, Hitbox hitbox2) {
             if (!hitbox1.Collide(hitbox2)) {
                 return Vector2.Zero;

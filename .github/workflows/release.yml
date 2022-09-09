@@ -1,0 +1,45 @@
+# Make sure to set the helper name and files to package in the last two steps
+
+name: Release
+on:
+  push:
+    paths:
+      - 'everest.yaml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Download Everest stripped lib
+      uses: robinraju/release-downloader@v1.5
+      with:
+        repository: EverestAPI/Everest
+        latest: true
+        fileName: lib-stripped.zip
+        
+    - name: Extract lib-stripped.zip
+      run: unzip lib-stripped.zip
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 5.0.x
+
+    - name: Install dependencies
+      run: dotnet restore
+
+    - name: Build with .NET Core
+      run: dotnet build --configuration Debug --no-restore
+      env:
+        CELESTEPREFIX: ${{ github.workspace }}/lib-stripped
+        
+    - name: Create mod zip
+      run: zip -qq -r FurryHelper.zip Ahorn Loenn everest.yaml Code/bin -x "Code/bin/Debug/*"
+      
+    - name: Upload ZIP
+      uses: actions/upload-artifact@v3
+      with:
+        name: zip
+        path: FurryHelper.zip

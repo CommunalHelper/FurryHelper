@@ -1,5 +1,5 @@
 - Name: FurryHelper
-  Version: 1.0.4
+  Version: 1.0.5
   DLL: Code/bin/FurryHelper.dll
   Dependencies:
     - Name: Everest

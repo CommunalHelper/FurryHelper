@@ -47,5 +47,13 @@
     <Target Name="CopyFiles" AfterTargets="Build">
         <Copy SourceFiles="$(OutputPath)\$(AssemblyName).dll" DestinationFolder="bin" />
     </Target>
+    
+    <PropertyGroup>
+        <PathMap>$(MSBuildProjectDirectory)=FurryHelper/</PathMap>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+    </PropertyGroup>
 
 </Project>

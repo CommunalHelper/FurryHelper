@@ -1,10 +1,16 @@
 # -- Entities
 placements.entities.FurryHelper/GlitchWall.tooltips.tiletype=The tileset ID to use for the block.
 placements.entities.FurryHelper/GlitchWall.tooltips.BPM=The rate of the teleport in beats-per-minute.
-placements.entities.FurryHelper/GlitchWall.tooltips.TimeDelays=List of delay multipliers per beat. For example, "1,2" will make every second beat twice as long.
+placements.entities.FurryHelper/GlitchWall.tooltips.TimeDelays=List of delay multipliers per beat. For example: using 1,2 will make every second beat twice as long.
 
 # -- Triggers
-placements.triggers.FurryHelper/momentumCameraOffsetTrigger.tooltips.momentumMode=Which momentum coordinate is being used.
-placements.triggers.FurryHelper/momentumCameraOffsetTrigger.tooltips.onlyOnce=If checked: Destroys the trigger after exiting.
-placements.triggers.FurryHelper/momentumCameraOffsetTrigger.tooltips.xOnly=If checked: Only the x coordinate will be affected by this trigger.
-placements.triggers.FurryHelper/momentumCameraOffsetTrigger.tooltips.yOnly=If checked: Only the y coordinate will be affected by this trigger.
+placements.triggers.FurryHelper/momentumCameraOffsetTrigger.tooltips.offsetXFrom=First X position of the camera offset.
+placements.triggers.FurryHelper/momentumCameraOffsetTrigger.tooltips.offsetXTo=Second X position of the camera offset.
+placements.triggers.FurryHelper/momentumCameraOffsetTrigger.tooltips.offsetYFrom=First Y position of the camera offset.
+placements.triggers.FurryHelper/momentumCameraOffsetTrigger.tooltips.offsetYTo=Second Y position of the camera offset.
+placements.triggers.FurryHelper/momentumCameraOffsetTrigger.tooltips.momentumFrom=The speed at or below which the "from" offset will be applied.
+placements.triggers.FurryHelper/momentumCameraOffsetTrigger.tooltips.momentumTo=The speed at or above which the "to" offset will be applied.
+placements.triggers.FurryHelper/momentumCameraOffsetTrigger.tooltips.momentumMode=Which momentum direction controls the the offset.
+placements.triggers.FurryHelper/momentumCameraOffsetTrigger.tooltips.onlyOnce=If checked, the trigger will be disabled when the player first leaves it.
+placements.triggers.FurryHelper/momentumCameraOffsetTrigger.tooltips.xOnly=Whether the trigger should only update the horizontal offset, keeping the current vertical offset.
+placements.triggers.FurryHelper/momentumCameraOffsetTrigger.tooltips.yOnly=Whether the trigger should only update the vertical offset, keeping the current horizontal offset.

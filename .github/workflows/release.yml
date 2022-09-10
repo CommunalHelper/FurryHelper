@@ -35,11 +35,13 @@ jobs:
       env:
         CELESTEPREFIX: ${{ github.workspace }}/lib-stripped
         
-    - name: Create mod zip
-      run: zip -qq -r FurryHelper.zip Ahorn Loenn everest.yaml Code/bin -x "Code/bin/Debug/*"
-      
     - name: Upload ZIP
       uses: actions/upload-artifact@v3
       with:
-        name: zip
-        path: FurryHelper.zip
+        name: FurryHelper
+        path: |
+          Ahorn
+          Code/bin
+          Loenn
+          everest.yaml
+          !Code/bin/Debug

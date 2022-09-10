@@ -10,6 +10,7 @@ namespace Celeste.Mod.FurryHelper {
     public class GlitchWall : Solid {
         private static Vector2 screenSize = new(Celeste.GameWidth, Celeste.GameHeight);
         private static readonly char[] separators = { ',' };
+
         private readonly float[] TimeDelays;
         private readonly char TileType;
         private float timer = 0;
@@ -20,19 +21,6 @@ namespace Celeste.Mod.FurryHelper {
         private TileGrid EndTile;
         private TileInterceptor StartInterceptor;
         private TileInterceptor EndInterceptor;
-
-        private Vector2 LevelTopLeft {
-            get {
-                Rectangle bounds = SceneAs<Level>().Bounds;
-                return new Vector2(bounds.Left, bounds.Top);
-            }
-        }
-        private Vector2 LevelBotRight {
-            get {
-                Rectangle bounds = SceneAs<Level>().Bounds;
-                return new Vector2(bounds.Right, bounds.Bottom);
-            }
-        }
 
         public GlitchWall(EntityData data, Vector2 offset) : base(offset, data.Width, data.Height, true) {
             TileType = data.Char("tiletype", 'm');
@@ -51,6 +39,19 @@ namespace Celeste.Mod.FurryHelper {
             TimeDelays = new float[delays.Length];
             for (int i = 0; i < delays.Length; i++) {
                 TimeDelays[i] = float.Parse(delays[i]) / bps;
+            }
+        }
+
+        private Vector2 LevelTopLeft {
+            get {
+                Rectangle bounds = SceneAs<Level>().Bounds;
+                return new Vector2(bounds.Left, bounds.Top);
+            }
+        }
+        private Vector2 LevelBotRight {
+            get {
+                Rectangle bounds = SceneAs<Level>().Bounds;
+                return new Vector2(bounds.Right, bounds.Bottom);
             }
         }
 

@@ -5,15 +5,15 @@ using Monocle;
 namespace Celeste.Mod.FurryHelper {
     [CustomEntity("FurryHelper/momentumCameraOffsetTrigger")]
     public class MomentumCameraOffsetTrigger : Trigger {
+        private readonly MomentumModes momentumMode;
+        private readonly float momentumFrom;
+        private readonly float momentumTo;
+        private readonly bool onlyOnce;
+        private readonly bool xOnly;
+        private readonly bool yOnly;
         private Vector2 offsetFrom;
         private Vector2 offsetTo;
         private Vector2 prevPos;
-        private MomentumModes momentumMode;
-        private float momentumFrom;
-        private float momentumTo;
-        private bool onlyOnce;
-        private bool xOnly;
-        private bool yOnly;
         private bool skipFrame = false;
 
         public MomentumCameraOffsetTrigger(EntityData data, Vector2 offset) : base(data, offset) {
@@ -35,17 +35,21 @@ namespace Celeste.Mod.FurryHelper {
                 skipFrame = true;
                 return;
             }
+
             if (skipFrame) {
                 skipFrame = false;
                 prevPos = player.Position;
                 return;
             }
+
             if (!yOnly) {
                 SceneAs<Level>().CameraOffset.X = MathHelper.Lerp(offsetFrom.X, offsetTo.X, GetMomentumLerp(player));
             }
+
             if (!xOnly) {
                 SceneAs<Level>().CameraOffset.Y = MathHelper.Lerp(offsetFrom.Y, offsetTo.Y, GetMomentumLerp(player));
             }
+
             prevPos = player.Position;
         }
 
@@ -59,13 +63,10 @@ namespace Celeste.Mod.FurryHelper {
         protected float GetMomentumLerp(Player player) {
             Vector2 Speed = player.Position - prevPos;
             Speed *= Engine.FPS;
-            switch (momentumMode) {
-                case MomentumModes.HorizontalMomentum:
-                    return Calc.ClampedMap(Speed.X, momentumFrom, momentumTo);
-                case MomentumModes.VerticalMomentum:
-                    return Calc.ClampedMap(Speed.Y, momentumFrom, momentumTo);
-                default:
-                    return 1f;
+            return momentumMode switch {
+                MomentumModes.HorizontalMomentum => Calc.ClampedMap(Speed.X, momentumFrom, momentumTo),
+                MomentumModes.VerticalMomentum => Calc.ClampedMap(Speed.Y, momentumFrom, momentumTo),
+                _ => 1f,
             };
         }
     }

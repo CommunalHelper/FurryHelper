@@ -21,5 +21,4 @@ namespace Celeste.Mod.FurryHelper {
     public static class CommunalHelperImports {
         public static Func<int> StDreamTunnelDash;
     }
-
 }

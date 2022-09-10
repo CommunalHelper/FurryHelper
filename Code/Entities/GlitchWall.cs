@@ -8,20 +8,16 @@ using System.Linq;
 namespace Celeste.Mod.FurryHelper {
     [CustomEntity("FurryHelper/GlitchWall")]
     public class GlitchWall : Solid {
-        private static Vector2 screenSize = new Vector2(Celeste.GameWidth, Celeste.GameHeight);
-        private static char[] separators = { ',' };
-
-        private bool atEnd = false;
-        private float[] TimeDelays;
+        private static Vector2 screenSize = new(Celeste.GameWidth, Celeste.GameHeight);
+        private static readonly char[] separators = { ',' };
+        private readonly float[] TimeDelays;
+        private readonly char TileType;
         private float timer = 0;
-        private char TileType;
-
+        private bool atEnd = false;
         private Vector2 StartPos;
         private Vector2 EndPos;
-
         private TileGrid StartTile;
         private TileGrid EndTile;
-
         private TileInterceptor StartInterceptor;
         private TileInterceptor EndInterceptor;
 
@@ -78,10 +74,10 @@ namespace Celeste.Mod.FurryHelper {
             Level level = SceneAs<Level>();
             Rectangle tileBounds = level.Session.MapData.TileBounds;
             VirtualMap<char> solidsData = level.SolidsData;
-            int x = (int) (X / 8f) - tileBounds.Left;
-            int y = (int) (Y / 8f) - tileBounds.Top;
-            int tilesX = (int) Width / 8;
-            int tilesY = (int) Height / 8;
+            int x = (int)(X / 8f) - tileBounds.Left;
+            int y = (int)(Y / 8f) - tileBounds.Top;
+            int tilesX = (int)Width / 8;
+            int tilesY = (int)Height / 8;
             tileGrid = GFX.FGAutotiler.GenerateOverlay(TileType, x, y, tilesX, tilesY, solidsData).TileGrid;
             Depth = -10501;
             return tileGrid;
@@ -121,15 +117,18 @@ namespace Celeste.Mod.FurryHelper {
                     counter = (counter + 1) % TimeDelays.Length;
                     continue;
                 }
+
                 timer = TimeDelays[counter];
                 while (timer > 0) {
                     yield return null;
                 }
+
                 sCounter += TimeDelays[counter];
                 counter = (counter + 1) % TimeDelays.Length;
                 if (TimeDelays[counter] == 0) {
                     continue;
                 }
+
                 current = GetPlayerRider();
 
                 //teleport
@@ -170,6 +169,7 @@ namespace Celeste.Mod.FurryHelper {
                         current.Die(direction);
                     }
                 }
+
                 atEnd = !atEnd;
             }
         }
@@ -188,7 +188,7 @@ namespace Celeste.Mod.FurryHelper {
             float bot = hitbox1.AbsoluteBottom - hitbox2.AbsoluteTop;
             float left = hitbox1.AbsoluteLeft - hitbox2.AbsoluteRight;
             float right = hitbox1.AbsoluteRight - hitbox2.AbsoluteLeft;
-            Vector2 diff = new Vector2(
+            Vector2 diff = new(
                 Math.Abs(left) > Math.Abs(right) ? right : left,
                 Math.Abs(top) > Math.Abs(bot) ? bot : top
             );
@@ -206,10 +206,12 @@ namespace Celeste.Mod.FurryHelper {
                 if (entity.Facing == Facings.Left && CollideCheck(entity, Position + Vector2.UnitX)) {
                     return entity;
                 }
+
                 if (entity.Facing == Facings.Right && CollideCheck(entity, Position - Vector2.UnitX)) {
                     return entity;
                 }
             }
+
             return null;
         }
     }

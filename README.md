@@ -1,8 +1,8 @@
 # Furry Helper
 
-A small helper for Celeste. Originally created by Skunkynator and now maintained by the Communal Helper organization. 
+A small helper for Celeste. The release build can be downloaded [here](https://gamebanana.com/mods/300395).
 
-The release build can be downloaded [here](https://gamebanana.com/mods/300395).
+Originally created by Skunkynator and now maintained by the Communal Helper organization. 
 
 ## Entities
 

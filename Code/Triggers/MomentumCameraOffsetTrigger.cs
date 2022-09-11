@@ -16,7 +16,8 @@ namespace Celeste.Mod.FurryHelper {
         private Vector2 prevPos;
         private bool skipFrame = false;
 
-        public MomentumCameraOffsetTrigger(EntityData data, Vector2 offset) : base(data, offset) {
+        public MomentumCameraOffsetTrigger(EntityData data, Vector2 offset) 
+            : base(data, offset) {
             // parse the trigger attributes. Multiplying X dimensions by 48 and Y ones by 32 replicates the vanilla offset trigger behavior.
             offsetFrom = new Vector2(data.Float("offsetXFrom") * 48f, data.Float("offsetYFrom") * 32f);
             offsetTo = new Vector2(data.Float("offsetXTo") * 48f, data.Float("offsetYTo") * 32f);
@@ -27,6 +28,11 @@ namespace Celeste.Mod.FurryHelper {
             xOnly = data.Bool("xOnly");
             yOnly = data.Bool("yOnly");
             prevPos = new Vector2(0f, 0f);
+        }
+
+        public enum MomentumModes {
+            HorizontalMomentum,
+            VerticalMomentum
         }
 
         public override void OnStay(Player player) {
@@ -69,9 +75,5 @@ namespace Celeste.Mod.FurryHelper {
                 _ => 1f,
             };
         }
-    }
-    public enum MomentumModes {
-        HorizontalMomentum,
-        VerticalMomentum
     }
 }

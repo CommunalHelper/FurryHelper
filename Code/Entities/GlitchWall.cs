@@ -22,7 +22,8 @@ namespace Celeste.Mod.FurryHelper {
         private TileInterceptor StartInterceptor;
         private TileInterceptor EndInterceptor;
 
-        public GlitchWall(EntityData data, Vector2 offset) : base(offset, data.Width, data.Height, true) {
+        public GlitchWall(EntityData data, Vector2 offset) 
+            : base(offset, data.Width, data.Height, true) {
             TileType = data.Char("tiletype", 'm');
 
             StartPos = data.Position + offset;

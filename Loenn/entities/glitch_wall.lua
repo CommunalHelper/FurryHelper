@@ -27,7 +27,8 @@ function glitchWall.fieldInformation(entity)
             editable = false
         },
         BPM = {
-            fieldType = "integer"
+            fieldType = "integer",
+            minimumValue = 1
         }
     }
 end

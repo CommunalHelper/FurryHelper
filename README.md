@@ -1,13 +1,7 @@
 # Furry Helper
 
-A small helper for Celeste. The release build can be downloaded [here](https://gamebanana.com/mods/300395).
+A small helper for Celeste. Originally created by Skunkynator and now maintained by the Communal Helper organization. 
 
-Originally created by Skunkynator and now maintained by the Communal Helper organization. 
+The release build and more detailed documentation can be found [here](https://gamebanana.com/mods/300395).
 
-## Entities
-
-* **Glitch Wall**: a wall that teleports between two locations on a configurable cycle.
-
-## Triggers
-
-* **Momentum Camera Offset Trigger**: a camera trigger that scales offset strength based on momentum.
+Head to our [issues page](https://github.com/CommunalHelper/AdventureHelper/issues) to leave a bug report or feature request.

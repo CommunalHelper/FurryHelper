@@ -19,6 +19,6 @@ namespace Celeste.Mod.FurryHelper {
 
     [ModImportName("CommunalHelper.DashStates")]
     public static class CommunalHelperImports {
-        public static Func<int> StDreamTunnelDash;
+        public static Func<int> GetDreamTunnelDashState;
     }
 }

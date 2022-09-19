@@ -177,7 +177,7 @@ namespace Celeste.Mod.FurryHelper {
         }
         private static bool IsDreamDashing(Player player) {
             bool inDreamState = player.StateMachine.State == Player.StDreamDash;
-            bool inDreamTunnelState = player.StateMachine.State == (CommunalHelperImports.StDreamTunnelDash?.Invoke() ?? -1);
+            bool inDreamTunnelState = player.StateMachine.State == (CommunalHelperImports.GetDreamTunnelDashState?.Invoke() ?? -1);
             return inDreamState || inDreamTunnelState;
         }
 

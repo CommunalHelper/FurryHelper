@@ -25,7 +25,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: 5.0.x
+        dotnet-version: 7.0.x
 
     - name: Install dependencies
       run: dotnet restore
@@ -39,4 +39,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: bin
-        path: Code/bin/Debug/net452
+        path: Code/bin/Debug/net7.0

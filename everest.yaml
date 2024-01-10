@@ -2,7 +2,7 @@
   Version: 1.0.6
   DLL: Code/bin/FurryHelper.dll
   Dependencies:
-    - Name: Everest
+    - Name: EverestCore
       Version: 1.4465.0
   OptionalDependencies:
     - Name: CommunalHelper
